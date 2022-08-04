@@ -63,7 +63,7 @@ function checkout({cart}) {
   
   return (
     <div>
-      <Script type="application/javascript" crossorigin="anonymous" src={`https://securegw.paytm.in/merchantpgpui/checkoutjs/merchants/${process.env.NEXT_PUBLIC_MID}.js`}> </Script>
+      <Script id={"paytm"} type="application/javascript" crossorigin="anonymous" src={`https://securegw.paytm.in/merchantpgpui/checkoutjs/merchants/${process.env.NEXT_PUBLIC_MID}.js`}> </Script>
 
         <section className="text-black body-font relative">
   <div className="container px-5 py-24 mx-auto min-h-screen">
@@ -73,7 +73,7 @@ function checkout({cart}) {
       <div className="cart">{cart.length? `Your Cart Details are as follows:`:`Your Cart is Empty!!`}</div>
       <ul className='list-decimal px-8 '>
       {cart.map((item)=>{
-        return <li >
+        return <li key={item.id}>
       {item[0]} with a price of ₹{item[1]}
         </li>
       })}
